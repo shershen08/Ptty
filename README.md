@@ -18,7 +18,6 @@ Ptty comes with a set of little helpers so to be as light and scalable as possib
 * Its not perfect but its readable.
 * Command History, help and clear commands.
 
-
 ## Usage
 
 To start Ptty simply do the following:
@@ -41,14 +40,15 @@ Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options
 	});
 ## Demo & Docs
 
-Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) or the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/v/0.1/example.html).
+Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/v/0.1/example.html), which at the moment only deals with offline commands but demonstrates the basics none the less.
 
-## Wishlist
+## To Do
 
-**To Do for version 0.1.0:**
+**For version 0.1.0:**
 
 * Refactor code and clean up unnecessary statements
 * Add option for disabled="disabled" to input while ajax takes place.
 * Try contenteditable="true" instead of input="text"
-* Add upload type option. Similar to password.
+* Add upload input type option. Same category as password.
 * Make a "scroll to command" response property that scrolls to the last input instead of the bottom.
+* _This list is likely to grow. Staty tuned._
