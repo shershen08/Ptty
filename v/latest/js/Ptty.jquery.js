@@ -10,26 +10,11 @@
  *           terms of the Do What The Fuck You Want To Public License, Version 2,
  *           as published by Sam Hocevar. See the COPYING file for more details.
  *
- * Features:
- * - Completely Extendible. 
- * - Command History, help and clear commands.
- * - Callback methods
- * - Its not perfect but its readable.
- *
- * To Do for version 0.2:
- * - Refactor code and clean up unnecessary statements
- * - Try contenteditable="true" instead of input="text"
- * - Add upload type
- * - Add disabled="disabled" to input
- *
- * To Do for version 0.3:
- * - Make a "scroll to command" response option that scrolls to the last input instead of the bottom.
- *
  * */
 
 ( function( $ ) {
      
-    var version = '0.1';
+    var version = '0.0.1';
 
     /**
     * @function : get_defaults
@@ -440,7 +425,8 @@
                     cmd_dispatch_js( dispatch[key].type_of, tokens, value );
 
                 }else{
-                    // this hopefully wont be used.
+                    // typeof dispatch[key].type_of === 'boolean' || 'symbol' || 'number'
+                    cmd_do_ajax( key, value, settings.url );
                 }
             };
 
@@ -478,7 +464,9 @@
 
                 cmd_opts.cmd_class = settings.tty_class + '_sub';
                 cmd_opts.cmd_name  = null;
-                cmd_opts.cmd_query  = null;
+                cmd_opts.cmd_token = null;
+                cmd_opts.cmd_query = null;
+                cmd_opts.cmd_ps    = null;
                 
                 settings.autocomplete = ( saved.ac_save ) ? saved.ac_save : false;
                 history               = ( saved.h_save ) ? saved.h_save : [ ];
@@ -817,7 +805,7 @@
             if( typeof dispatch_method === 'string' || typeof dispatch_method === 'object' || typeof dispatch_method === 'function' ){
                 dispatch[ command ] = {desc : cmd_desc, usage : cmd_usage, type_of : dispatch_method};
             }else{
-                throw 'Dispatch needs to be a method';
+                throw 'Dispatch needs to be a string, object or function';
             }
         } catch ( e ) { }
     };
