@@ -4,7 +4,6 @@
 
 * Current version 0.0.1
 * Size 8.9 Kb (minified)
-* [Download](http://code.patxipierce.com/jquery-plugin/ptty/v/0.1/Ptty.jquery.tar.gz)(12.1 kb)
 
 ## Features
 
