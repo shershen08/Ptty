@@ -19,7 +19,9 @@
     "./v/0.0.1/js/Ptty.jquery.min.js",
     "./v/0.0.1/css/Ptty.css"
   ],
-  "ignore": [], 
+  "ignore": [
+    "./Ptty.jquery.json"
+  ], 
   "dependencies": {
     "jquery": ">= 1.8.0"
   },
