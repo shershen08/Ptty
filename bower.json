@@ -9,7 +9,8 @@
   "license": "WTFPL",
   "ignore": [
     "./Ptty.jquery.json",
-    "./README.md"
+    "./README.md",
+    "./v/latest"
   ],
   "keywords": [
     "terminal",
