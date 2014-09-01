@@ -6,7 +6,7 @@
     "Patxi Pierce <pachanka@users.noreply.github.com>"
   ],
   "description": "Ptty is a jQuery plugin that crates a terminal emulator.",
-  "main": ["js/Ptty.jquery.js", "js/Ptty.jquery.min.js", "css/Ptty.css"],
+  "main": ["v/0.0.1/js/Ptty.jquery.js", "v/0.0.1/js/Ptty.jquery.min.js", "v/0.0.1/css/Ptty.css"],
   "dependencies": {
     "jquery": ">= 1.8.0"
   },
