@@ -16,7 +16,6 @@
   ],
   "main": [
     "./v/0.0.1/js/Ptty.jquery.js",
-    "./v/0.0.1/js/Ptty.jquery.min.js",
     "./v/0.0.1/css/Ptty.css"
   ],
   "ignore": [
