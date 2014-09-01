@@ -1,18 +1,11 @@
 {
   "name": "Ptty",
-  "version": "0.0.1",
   "homepage": "http://code.patxipierce.com/jquery-plugin/ptty/",
   "authors": [
     "Patxi Pierce <pachanka@users.noreply.github.com>"
   ],
   "description": "Ptty is a jQuery plugin that crates a terminal emulator.",
-  "main": ["v/0.0.1/js/Ptty.jquery.js", "v/0.0.1/js/Ptty.jquery.min.js", "v/0.0.1/css/Ptty.css"],
-  "dependencies": {
-    "jquery": ">= 1.8.0"
-  },
-  "moduleType": [
-    "globals"
-  ],
+  "version": "0.0.1",
   "keywords": [
     "terminal",
     "command",
@@ -20,6 +13,18 @@
     "teletype",
     "input",
     "CLI"
+  ],
+  "main": [
+    "./v/0.0.1/js/Ptty.jquery.js",
+    "./v/0.0.1/js/Ptty.jquery.min.js",
+    "./v/0.0.1/css/Ptty.css"
+  ],
+  "ignore": [], 
+  "dependencies": {
+    "jquery": ">= 1.8.0"
+  },
+  "moduleType": [
+    "globals"
   ],
   "license": "WTFPL"
 }
