@@ -30,9 +30,7 @@ Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options
     
     $(document).ready(function(){
 	    $('#terminal').Ptty({
-	        // Default ajax URL (can be relative or absolute).
 	        url    : 'ajax/',
-	        // Set the PS to an empty string and change the defaults to use a custom css theme.
 	        ps     : '',
 	        theme  : 'boring',
 	        welcome: 'Welcome to the matrix.'
@@ -40,7 +38,7 @@ Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options
 	});
 ## Demo & Docs
 
-Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/v/0.1/example.html), which at the moment only deals with offline commands but demonstrates the basics none the less.
+Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/demo) for a full screen example.
 
 ## To Do
 
