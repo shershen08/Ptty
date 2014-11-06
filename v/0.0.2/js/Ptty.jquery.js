@@ -261,7 +261,7 @@
                 }else if(psw_input.is(':visible')){
                     psw_input.focus();
                 }
-            });
+            });  
             
             // Make sure prompt is enabled
             prompt.removeAttr('disabled');

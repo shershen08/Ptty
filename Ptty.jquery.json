@@ -24,7 +24,7 @@
 "bugs": "http://code.patxipierce.com/jquery-plugin/ptty#bugs",
 "homepage": "http://code.patxipierce.com/jquery-plugin/ptty",
 "docs": "http://code.patxipierce.com/jquery-plugin/ptty#usage",
-"download": "http://code.patxipierce.com/jquery-plugin/ptty/v/0.0.1/Ptty.jquery.tar.gz",
+"download": "http://code.patxipierce.com/jquery-plugin/ptty/#download",
 "dependencies": {
 "jquery": ">=1.8.x"
 }
