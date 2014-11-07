@@ -1,16 +1,15 @@
 {
   "name": "Ptty",
   "description": "Ptty is a jQuery plugin that crates a terminal emulator.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": [
-    "./v/0.0.1/js/Ptty.jquery.js",
-    "./v/0.0.1/css/Ptty.css"
+    "./v/latest/js/Ptty.jquery.js",
+    "./v/latest/css/Ptty.css"
   ],
   "license": "WTFPL",
   "ignore": [
     "./Ptty.jquery.json",
     "./README.md",
-    "./v/latest",
     "**/.*",
     "node_modules",
     "bower_components",
