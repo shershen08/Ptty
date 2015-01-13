@@ -1,6 +1,6 @@
 /**
  * @file   : Ptty.jquery.js
- * @ver    : 0.1
+ * @ver    : 0.0.3
  * @Author : Patxi Pierce
  * @url    : http://code.patxipierce.com/jquery-plugin/ptty/
  * @desc   : Ptty (Pachanka's teletype). A terminal emulator plugin for jQuery. 
@@ -14,7 +14,7 @@
 
 ( function( $ ) {
      
-    var version = '0.0.2';
+    var version = '0.0.3';
 
     /**
     * @function : get_defaults
@@ -232,8 +232,10 @@
             + '<div class="' + settings.tty_class + '_prompt"><span class="' + settings.tty_class + '_ps">'
             + '<span class="' + settings.tty_class + '_active">' + settings.ps + '</span>&nbsp;</span>'
             + '<form accept-charset="'+settings.charset+'" enctype="'+settings.enctype+'">'
-            + '<input type="text" autocomplete="off" /><input type="password" /><input type="file" />'
-            + '</form></div>');
+            + '<input type="text" autocomplete="off" /><input type="password" />'
+            + '<span class="upl_container hide"><input type="file" /><a href="javascript:void(0)" '
+            + 'onclick="$(this).parent().addClass(\'hide\').siblings(\'input[type=text]\').show();">Cancel</a></span>'
+            + '</form><progress class="' + settings.tty_class + '_progress"></progress></div>');
             
             // Representing prompt, form, input and content section in the terminal
             var prompt     = element.find( 'div:last span:last' );
@@ -266,11 +268,6 @@
             // Make sure prompt is enabled
             prompt.removeAttr('disabled');
 
-            // Reset file input after use
-            upl_input.bind('change', function(){
-                upl_input.removeAttr('multiple').removeAttr('accept');
-            });
-
             // Register commands
             native_commands(options);
 
@@ -278,9 +275,9 @@
             * @method   : update_content
             * @private  :
             * @desc     : Updates the content section. Must be the last function called.
-            * @args     : p, command, data
+            * @args     : p, command, output
             **/
-            var update_content = function( p, command, data ) {
+            var update_content = function( p, command, output ) {
                 // Override command options if any.
                 var command_class = cmd_opts.cmd_class;
                 if( command_class === null ){
@@ -288,7 +285,7 @@
                 }
 
                 if( cmd_opts.cmd_in  !== null ) command = cmd_opts.cmd_in;
-                if( cmd_opts.cmd_out !== null ) data  = cmd_opts.cmd_out;
+                if( cmd_opts.cmd_out !== null ) output  = cmd_opts.cmd_out;
 
                 if( cmd_opts.cmd_quiet == 'clear' ){
                     content.html('');
@@ -304,7 +301,7 @@
                     p = '<span class="' + command_class + '"><span>' + p + '</span>&nbsp;' + command + '</span>';
                 }
 
-                content.append( '<div>' + p + '<div>' + data + '</div></div>' );
+                content.append( '<div>' + p + '<div>' + output + '</div></div>' );
 
                 // End loading.
                 loading.fadeOut(300);
@@ -354,6 +351,7 @@
                 if(ajax_url === false || ajax_url == '' || typeof ajax_url === 'undefined'){
                     ajax_url = (dispatch[key].type_of) ? dispatch[key].type_of : settings.url;
                 }
+
                 // Send
                 $.ajax({
                     type: settings.method,
@@ -515,32 +513,48 @@
                 var cbk = { ps : get_prompt(), output : '' };
 
                 // Set type of prompt
-                if( typeof data.type !== 'undefined' ){
-                    switch ( data.type ){
-                        case 'prompt':
-                            // Ask for information (generate token)
-                            if(!cmd_opts.cmd_token){
-                                var token1 = Math.random().toString(36).substr(2),
-                                    token2 = Math.random().toString(36).substr(2),
-                                    token3 = Math.random().toString(36).substr(2);
-                                cmd_opts.cmd_token = token1+token2+token3;
+                switch ( data.type ){
+                    case 'prompt':
+                        // Ask for information (generate token)
+                        if(!cmd_opts.cmd_token){
+                            var token1 = Math.random().toString(36).substr(2),
+                                token2 = Math.random().toString(36).substr(2),
+                                token3 = Math.random().toString(36).substr(2);
+                            cmd_opts.cmd_token = token1+token2+token3;
+                        }
+                    break;
+                    case 'password':
+                        // Change input type to password
+                        txt_input.hide();
+                        psw_input.show().focus();
+                    break;
+                    case 'upload':
+                        // Set settings
+                        if(typeof data.upload_multiple != 'undefined') upl_input.attr('multiple', 'multiple');
+                        if(typeof data.upload_accept != 'undefined') upl_input.attr('accept', data.upload_accept);
+
+                        // Show file selector
+                        txt_input.hide();
+                        upl_input.parent().removeClass('hide');
+
+                        // File input listener
+                        upl_input.bind('change', function(){
+                            upl_input.parent().addClass('hide');
+                            txt_input.show();
+
+                            if(upl_input.val() != ''){
+                                cmd_upload( this.files , data );    
                             }
-                        break;
-                        case 'password':
-                            // Change input type to password
-                            txt_input.hide();
-                            psw_input.show().focus();
-                        break;
-                        case 'upload':
-                            // Attempt to open file selector
-                            if(typeof data.multiple != 'undefined') upl_input.attr('multiple', 'true');
-                            if(typeof data.accept != 'undefined') upl_input.attr('accept', data.accept);
-                            upl_input.show().focus().trigger('click').hide();
-                        break;
-                        default:
-                            data.type = 'print';
-                        break;
-                    }
+                            // Reset input
+                            upl_input.attr('accept', '');
+                            upl_input.attr('multiple', '');
+                            upl_input.val('');
+                        });
+
+                    break;
+                    default:
+                        data.type = 'print';
+                    break;
                 }
 
                 // For the last subroutine.
@@ -561,6 +575,7 @@
                 // Update content accordingly
                 update_content( cbk.ps, value, cbk.output);
 
+                // Must go after update_content
                 if( typeof data.exit !== 'undefined' && cdispatch ){
                     exit_subroutine();
                     cmd_opts.cmd_ps = null;
@@ -572,7 +587,7 @@
                         if( typeof callbacks[data.callback] === 'function' ){
                             cbk.output = callbacks[data.callback]( data );
                         }else{
-                            throw( settings.error_prefix + ' No callback called ' + data.callback );
+                            throw( settings.error_prefix + ' ' + data.callback + ' callback unknown.');
                         }
                     } catch ( e ) {
                         // Debug
@@ -601,6 +616,77 @@
                         tries++;
                     }
                 }, 50);
+            };
+
+            /* Adds a progress bar to any process */
+            var progress_handler = function(e){
+                if(e.lengthComputable){
+                    var progress = $('.'+settings.tty_class + '_progress');
+                    progress.attr({
+                        value : e.loaded,
+                        max   : e.total
+                    });
+                }
+            }
+
+            /**
+            * @method   : cmd_upload
+            * @private  :
+            * @desc     : attempts to upload a file via ajax
+            **/
+            var cmd_upload = function(files, data){
+
+                var files_selected = '';
+                var progress = $('.'+settings.tty_class + '_progress');
+
+                if(typeof data.upload_to !== 'undefined'){
+                    var ajax_url = data.upload_to;
+                }else{
+                    var ajax_url = (cdispatch !== null) ? cdispatch.dispatch_method : settings.url;
+                }                
+
+                // Add files
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append("file_" + i, files[i]);
+                    files_selected += ' '+files[i].name;
+                };
+
+                // Add data
+                for ( var key in data ) {
+                    formData.append(key, data[key]);
+                };
+                
+                progress.show();
+
+                $.ajax({
+                    url: ajax_url,
+                    type: 'POST',
+                    xhr: function() {
+                        var myXhr = $.ajaxSettings.xhr();
+
+                        if(myXhr.upload){
+                            myXhr.upload.addEventListener('progress', progress_handler, false);
+                        }
+                        return myXhr;
+                    },
+                    // Form data
+                    data: formData,
+                    //Options to not process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+                .done(function(response){
+                    console.log('Uploaded:'+files_selected+' to '+ajax_url);
+                    console.log(response);
+                })
+                .fail(function(){
+                    console.log('Error uploading.');
+                })
+                .always(function(){
+                    progress.hide();
+                });
             };
 
             /**

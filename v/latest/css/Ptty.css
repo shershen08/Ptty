@@ -58,12 +58,19 @@
     outline: none;
     font-family: "Menlo Regular","Lucida Console",Monaco,monospace,"Courier New",Fixed;
 }
-.cmd_terminal input[type=file]{
-     width: 0px;
-     height: 0px;
-     overflow: hidden;
+
+.cmd_terminal .upl_container {
+    position: relative;
+    top: 0;
 }
-.cmd_terminal input[type=password]{
+.cmd_terminal .upl_container.hide {
+    position: absolute;
+    top: -5000px;
+}
+.cmd_terminal input[type=file] {
+    width: 220px;
+}
+.cmd_terminal input[type=password] {
     display: none;
 }
 
@@ -92,7 +99,8 @@
 .cmd_terminal_theme_boring .cmd_terminal_sub span::after { content: "\0000a0>"; }
 
 /* Loading */
-.cmd_terminal_loading{
+.cmd_terminal_loading,
+.cmd_terminal_progress {
     position: fixed;
     display: none;
     padding: 0 35px;
