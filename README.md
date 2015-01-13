@@ -2,8 +2,8 @@
 
 [Ptty](http://code.patxipierce.com/jquery-plugin/ptty/) is a jQuery plugin that creates an expansible terminal emulator. It is small, it is fast and it is fully customizable by adding commands and callbacks.
 
-* Current version 0.0.2
-* Size 8.9 Kb (minified)
+* Current version 0.0.3
+* Size 9.9 Kb (minified)
 
 ## Features
 
@@ -15,6 +15,7 @@ Ptty comes with a set of little helpers so to be as light and scalable as possib
 * Sub-routines are available.
 * Command refreshing by using the <code>$.flush_commands()</code> method.
 * Fully CSS themable.
+* Upload files via AJAX.
 * Its not perfect but its readable.
 * Command History, help and clear commands.
 
@@ -39,10 +40,3 @@ Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options
 ## Demo & Docs
 
 Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/demo) for a full screen example.
-
-## To Do
-
-**For version 0.1.0:**
-
-* Make a "scroll to command" response property that scrolls to the last input instead of the bottom.
-* _This list is likely to grow. Staty tuned._
