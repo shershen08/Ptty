@@ -35,6 +35,8 @@
     margin: 10px 0 0 0;
 }
 .cmd_terminal .cmd_terminal_prompt {
+    position: relative;
+    overflow: hidden;
     padding: 0 24px 15px;
 }
 .cmd_terminal .cmd_terminal_ps, .cmd_terminal .cmd_terminal_sub { 
