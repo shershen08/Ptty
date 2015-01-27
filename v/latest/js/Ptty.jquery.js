@@ -798,7 +798,7 @@
                     case 38:
                         e.preventDefault();
                         if( settings.history ) {
-                            hcurrent  = ( hcurrent === null ) ? history.length - 1 : ( hcurrent == 0 ) ? history.length - 1 : hcurrent - 1;
+                            hcurrent = ( hcurrent === null || hcurrent == 0 ) ? history.length - 1 : hcurrent - 1;
                             txt_input.val( history[ hcurrent ] );
                         }
                     break;
