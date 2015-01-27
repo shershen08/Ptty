@@ -238,7 +238,7 @@
             + '</form><progress class="' + settings.tty_class + '_progress"></progress></div>');
             
             // Representing prompt, form, input and content section in the terminal
-            var prompt     = element.find( 'div:last span:last' );
+            var prompt     = element.find( 'span.' + settings.tty_class + '_active' );
             var input_form = element.find( 'div:last form' );
             var input      = input_form.find( 'input' );
             var txt_input  = input_form.find( 'input[type=text]' );
@@ -798,7 +798,7 @@
                     case 38:
                         e.preventDefault();
                         if( settings.history ) {
-                            hcurrent  = ( hcurrent === null ) ? history.length - 1 : ( hcurrent == 0 ) ? history.length - 1 : hcurrent - 1;
+                            hcurrent = ( hcurrent === null || hcurrent == 0 ) ? history.length - 1 : hcurrent - 1;
                             txt_input.val( history[ hcurrent ] );
                         }
                     break;
