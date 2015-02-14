@@ -742,6 +742,8 @@
                     // Decode before inserting
                     history.push( $.trim($('<div/>').html(value).text()) );
                 }
+                // Reset history (thanks @Mangome)
+                hcurrent = 0;
 
                 // Activate loading
                 loading.show();
