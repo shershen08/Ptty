@@ -16,7 +16,7 @@
     background-color: #aaa;
     color: #fff;
     font-size: 12px;
-    font-family: "Menlo Regular","Lucida Console",Monaco,monospace,"Courier New",Fixed;
+    font-family: "ubutnu mono",ubuntu,"Lucida Sans Typewriter","Lucida Typewriter","Lucida Console","Bitstream Vera Sans Mono",monaco,Consolas,"Courier New",Courier,"Andale Mono",AndaleMono,monospace,sans-serif;
     display: block;
     overflow-x: none;
     overflow-y: auto;
@@ -58,7 +58,7 @@
     width: 100%; 
     font-size: 12px;
     outline: none;
-    font-family: "Menlo Regular","Lucida Console",Monaco,monospace,"Courier New",Fixed;
+    font-family: inherit;
 }
 
 .cmd_terminal .upl_container {

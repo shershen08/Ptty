@@ -9,7 +9,7 @@
 
 Ptty comes with a set of little helpers so to be as light and scalable as possible, It can:
 
-* Expand on demmand using the <code>$.register_command()</code> method.
+* Expand on demand using the <code>$.register_command()</code> method.
 * It auto-documents all commands and usage by requiring command descriptions and usage.
 * Add callbacks (including other jQuery plugins) with the <code>$.register_callback()</code> command.
 * Sub-routines are available.
