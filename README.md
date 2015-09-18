@@ -2,8 +2,8 @@
 
 [Ptty](http://code.patxipierce.com/jquery-plugin/ptty/) is a jQuery plugin that creates an expansible terminal emulator. It is small, it is fast and it is fully customizable by adding commands and callbacks.
 
-* Current version 0.0.3
-* Size 9.9 Kb (minified)
+* Current version 0.0.4
+* Size 11.6 Kb (minified)
 
 ## Features
 
