@@ -1,6 +1,6 @@
 /**
- * @file   : Ptty.jquery.js
- * @ver    : 0.0.3
+ * @file   : ptty.jquery.js
+ * @ver    : 0.0.4
  * @Author : Patxi Pierce
  * @url    : http://code.patxipierce.com/jquery-plugin/ptty/
  * @desc   : Ptty (Pachanka's teletype). A terminal emulator plugin for jQuery. 
