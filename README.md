@@ -1,6 +1,6 @@
 # Ptty.jquery.js
 
-[Ptty](http://code.patxipierce.com/jquery-plugin/ptty/) is a jQuery plugin that creates an expansible terminal emulator. It is small, it is fast and it is fully customizable by adding commands and callbacks.
+[Ptty](http://goto.pachanka.org/ptty/) is a jQuery plugin that creates an expansible terminal emulator. It is small, it is fast and it is fully customizable by adding commands and callbacks.
 
 * Current version 0.0.4
 * Size 11.6 Kb (minified)
@@ -27,7 +27,7 @@ To start Ptty simply do the following:
         $('#terminal').Ptty();
     });
 
-Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options):
+Or you can use [options](http://goto.pachanka.org/ptty/#options):
     
     $(document).ready(function(){
 	    $('#terminal').Ptty({
@@ -39,4 +39,4 @@ Or you can use [options](http://code.patxipierce.com/jquery-plugin/ptty/#options
 	});
 ## Demo & Docs
 
-Please see the [online documentation](http://code.patxipierce.com/jquery-plugin/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://code.patxipierce.com/jquery-plugin/ptty/demo) for a full screen example.
+Please see the [online documentation](http://goto.pachanka.org/ptty/) to learn about the plugin options and response structure or look at the [Demo](http://goto.pachanka.org/ptty/demo) for a full screen example.
