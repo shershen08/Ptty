@@ -25,7 +25,7 @@ To start Ptty simply do the following:
         var $ptty = $('#terminal').ptty();
     });
 
-Or you can use [settings](http://goto.pachanka.org/ptty/#settings):
+Or you can use [settings](http://goto.pachanka.org/ptty/docs#settings):
     
     $(document).ready(function(){
 	    var $ptty = $('#terminal').ptty({
