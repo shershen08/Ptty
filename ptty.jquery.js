@@ -2,9 +2,9 @@
  * @file   : ptty.jquery.js
  * @ver    : 0.0.5 (beta)
  * @author : Pachanka <social@pachanka.org>
- * @url    : http://goto.pachanka.org/ptty/
+ * @url    : http://goto.pachanka.org/ptty/docs
  * @desc   : Ptty (Pseudo teletype). A terminal emulator plugin for jQuery. 
- * @license: WTFPL Version 2.
+ * @license: WTFPL Version 2. (http://www.wtfpl.net/)
  **/
 
 ( function( $ ) {
@@ -47,7 +47,6 @@
                 native_css   : true,
                 theme        : 'boring',
 
-
                 // Register help, clear and history commands
                 native_cmds  : true,
 
@@ -75,7 +74,7 @@
                     // If command method is not valid
                     error_bad_method : 'Invalid command method.',
                     // Ajax response failed
-                    error_ajax : 'Server error.'
+                    error_ajax : 'Server error.',
                 }
             };
         };
@@ -146,7 +145,12 @@
             * @desc     : Registers the native CSS rules.
             **/
             public.native_style = function(el, theme){
-                var el_id = el.attr('id');
+                var att = el.attr('id');
+                if(!att){ 
+                    att = '.'+el.attr('class').split(' ')[1];
+                }else{
+                    att = '#'+att;
+                }
                 if(theme === 'boring'){
                     var boring_theme = [
                         '.boring, .boring .prompt, .boring .content'+
@@ -178,7 +182,7 @@
                 }
 
                 var rules = [
-                    '#'+el_id+
+                    att+
                         '{ position: relative; display: block; overflow-y: auto; height: 100%; }',
                     'div.content div p'+
                         '{ margin: 0; }',
@@ -211,7 +215,7 @@
                         'animation: spin 4s linear infinite; }',
                     'div.loading.working'+
                         '{ display:flex; justify-content:center; align-items:center; }'
-                ].join("\n"+' #'+el_id+' ');
+                ].join("\n"+' '+att+' ');
 
                 // Loading spinning animation
                 rules += '@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }'+
