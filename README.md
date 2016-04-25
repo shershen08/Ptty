@@ -3,7 +3,7 @@
 [Ptty](http://goto.pachanka.org/ptty/docs) is a jQuery plugin that creates an expansible terminal emulator. It is small, it is fast and it is fully customizable by adding commands and callbacks.
 
 * Current version 0.0.5
-* Size 11.7 Kb (minified)
+* Size 12 Kb (minified)
 
 ## Features
 
