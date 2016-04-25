@@ -139,7 +139,15 @@
 
             // Merge options with defaults (if any)
             var settings = $.extend( true, get_defaults(), options );
-            
+
+            /**
+            * @method   : get_terminal
+            * @desc     : Returns the terminal element or a sub-element
+            **/
+            public.get_terminal = function(selector){
+                return (!selector) ? el : el.find(selector);
+            }
+
             /**
             * @method   : native_style
             * @desc     : Registers the native CSS rules.
@@ -183,18 +191,18 @@
 
                 var rules = [
                     att+
-                        '{ position: relative; display: block; overflow-y: auto; height: 100%; }',
+                        '{ position: relative; display: block; overflow: auto; height: 100%; }',
                     'div.content div p'+
                         '{ margin: 0; }',
                     'div.content div'+
-                        '{ clear:both; white-space:pre-wrap; word-wrap:break-word; }',
+                        '{ clear: both; white-space:pre-wrap; word-wrap:break-word; }',
                     'div.content div ul'+
                         '{ padding: 0; white-space: normal }',
                     'div.content div ul li'+
                         '{ list-style: none; }',
                     'div.content div ul.sq-li li'+
                         '{ display: inline-block; text-align: center; padding: 10px; min-width: 5%; }',
-                    
+
                     'div.prompt div.input'+
                         '{ width: 100%; white-space:pre-wrap; word-wrap:break-word; cursor: default; outline: none;}',
                     'div.prompt div.input::before'+
@@ -203,13 +211,11 @@
                         '{ visibility : visible; vertical-align: middle; content: attr(data-caret); }',
                     'div.prompt div.input.blink::after'+
                         '{ visibility : hidden; }',
-                    'div.prompt progress'+
-                        '{ display:none; position:fixed; }',
                     'div.prompt .hide'+
                         '{ position:absolute; top: -9999em; }',
 
                     'div.loading'+
-                        '{ display: none; position: fixed; width: 100%; height: 100%;'+
+                        '{ display: none; position: fixed;'+
                         '-webkit-animation: spin 4s linear infinite; -moz-animation: spin 4s linear infinite; '+
                         '-ms-animation: spin 4s linear infinite; -o-animation: spin 4s linear infinite; '+
                         'animation: spin 4s linear infinite; }',
@@ -222,7 +228,7 @@
                     '@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }'+
                     '@-ms-keyframes spin { 100% { -ms-transform: rotate(360deg); } }'+
                     '@-o-keyframes spin { 100% { -o-transform: rotate(360deg); } }'+
-                    '@keyframes spin { 100% { transform:rotate(360deg); } }';
+                    '@keyframes spin { 100% { transform: rotate(360deg); } }';
 
                 $('<style id="ptty-styles">'+rules+'</style>').appendTo('head');
             }
@@ -820,7 +826,7 @@
             * @desc     : I give up. Done is better than perfect.
             **/
             var scroll_to_bottom = function(){
-                el.scrollTop(el.height() + 100000000000000000);
+                el.scrollTop(el.height() + 100000000000000000);    
             };
 
             // Set caret to end of input
