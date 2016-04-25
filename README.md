@@ -31,7 +31,9 @@ Or you can use [settings](http://goto.pachanka.org/ptty/docs#settings):
 	    var $ptty = $('#terminal').ptty({
 	        ps     : '$',
 	        theme  : 'boring',
-	        welcome: 'Welcome to the matrix.'
+	        i18n   : {
+                welcome: 'Welcome to the matrix.'
+            }
 	    });
 	});
 
