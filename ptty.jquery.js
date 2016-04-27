@@ -562,7 +562,7 @@
                 public.native_style(el, settings.theme);
             }
 
-            var blinking = true;
+            var blinking = settings.autofocus;
 
             // temporary switches for subroutines
             var tab_comp = settings.autocomplete; 
