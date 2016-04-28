@@ -167,7 +167,7 @@
                             '{ padding: 15px 15px 0 15px; }',
                         '.boring .prompt'+
                             '{ padding: 0 15px 15px 15px; }',
-                        '.boring .loading::after'+
+                        '.boring .loading span::after'+
                             '{content: "\u2699"; color: #ddd; font-size: 10em; border-radius: 10em; opacity: 0.4;}',
                         '.boring .content ul'+
                             '{ margin: 0; }',
@@ -191,7 +191,7 @@
 
                 var rules = [
                     att+
-                        '{ position: relative; display: block; overflow: auto; height: 100%; }',
+                        '{ position: relative; display: block; overflow-X: hidden; height: 100%; }',
                     'div.content div p'+
                         '{ margin: 0; }',
                     'div.content div'+
@@ -215,12 +215,14 @@
                         '{ position:absolute; top: -9999em; }',
 
                     'div.loading'+
-                        '{ display: none; position: fixed;'+
-                        '-webkit-animation: spin 4s linear infinite; -moz-animation: spin 4s linear infinite; '+
-                        '-ms-animation: spin 4s linear infinite; -o-animation: spin 4s linear infinite; '+
-                        'animation: spin 4s linear infinite; }',
+                        '{ display: none; }',
                     'div.loading.working'+
-                        '{ display:flex; justify-content:center; align-items:center; }'
+                        '{ display: block; display:flex; justify-content: center; align-items: center;'+
+                        'position: fixed;  width: inherit; height: inherit; }',
+                    'div.loading span'+
+                        '{ -webkit-animation: spin 4s linear infinite; -moz-animation: spin 4s linear infinite; '+
+                        '-ms-animation: spin 4s linear infinite; -o-animation: spin 4s linear infinite; '+
+                        'animation: spin 4s linear infinite; }'
                 ].join("\n"+' '+att+' ');
 
                 // Loading spinning animation
@@ -539,7 +541,7 @@
 
             // Some markup
             el.append(
-                '<div class="loading"></div>'+
+                '<div class="loading"><span></span></div>'+
                 '<div class="content">'+
                     '<div>' + settings.i18n.welcome + '</div>'+
                 '</div>'+
