@@ -22,13 +22,13 @@ Ptty comes with a set of little helpers so to be as light and scalable as possib
 To start Ptty simply do the following:
     
     $(document).ready(function(){
-        var $ptty = $('#terminal').ptty();
+        var $ptty = $('#terminal').Ptty();
     });
 
 Or you can use [settings](http://goto.pachanka.org/ptty/docs#settings):
     
     $(document).ready(function(){
-	    var $ptty = $('#terminal').ptty({
+	    var $ptty = $('#terminal').Ptty({
 	        ps     : '$',
 	        theme  : 'boring',
 	        i18n   : {
