@@ -9,13 +9,13 @@
 
 Ptty comes with a set of little helpers so to be as light and scalable as possible, It can:
 
-* Expand on demand using the <code>$ptty.register()</code> method.
+* Expand on demand using the <code>$ptty.register()</code> [method](http://goto.pachanka.org/ptty/docs/#register).
 * Build auto-documenting commands using the help feature.
-* Add callbacks and callbefores.
+* Add [callbacks and callbefores](http://goto.pachanka.org/ptty/docs/#register).
 * Texts can be translated through the settings and changed at any time.
-* Fully CSS themable.
+* Fully CSS [themable](http://goto.pachanka.org/ptty/docs/#themes).
 * Its not perfect but its readable.
-* Commands history, help and clear are built in.
+* Commands: [history, help and clear](http://goto.pachanka.org/ptty/docs/#quick-start) are built in.
 
 ## Usage
 
