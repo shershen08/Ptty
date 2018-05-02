@@ -231,7 +231,7 @@
                     '@-ms-keyframes spin { 100% { -ms-transform: rotate(360deg); } }'+
                     '@-o-keyframes spin { 100% { -o-transform: rotate(360deg); } }'+
                     '@keyframes spin { 100% { transform: rotate(360deg); } }';
-
+                // TODO Id repeats itself
                 $('<style id="ptty-styles">'+rules+'</style>').appendTo('head');
             }
 
