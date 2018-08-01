@@ -208,7 +208,7 @@
                     'div.prompt div.input::before'+
                         '{ vertical-align: middle; content: attr(data-ps); }',
                     'div.prompt div.input::after'+
-                        '{ visibility : visible; vertical-align: middle; content: attr(data-caret); left:-4px; position:relative; font-family:monospace; }',
+                        '{ visibility : visible; vertical-align: middle; content: attr(data-caret); margin-left:-0.15em;}',
                     'div.prompt div.input.blink::after'+
                         '{ visibility : hidden; }',
                     'div.prompt .hide'+
